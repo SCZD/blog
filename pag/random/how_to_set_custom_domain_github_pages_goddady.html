@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="pic/favicon.png" sizes="64x64">
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<link rel="stylesheet" type="text/css" href="../../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script type="text/javascript" src="../../javascript/get_name_path.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="header">
+			<nav>
+				<ul>
+					<li class="nav-li-a-underline"><a href="../../index.html">Home</a></li>
+					<li class="nav-li-b-underline"><a href="../arch_linux.html">Arch Linux</a></li>
+					<li class="nav-li-c-underline"><a href="../ubuntu.html">Ubuntu</a></li>
+					<li class="nav-li-d-underline"><a href="../history.html">History</a></li>
+					<li class="nav-li-e-underline" id="nav-li-e-underline-s"><a id="nav-li-a" href="../random.html">Random</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div id="body">
+		<div id="pdfpost">
+			<div id="pdf">
+				<span class="ptitle">Set custom domain for GitHub Pages [GoDaddy]</span>
+				<blockquote class="pbq">
+					First of all to set a <span class="pcur">Custom domain</span> you need to have a domain registered, be wise because that domain will be the one you'll use. In this case we used GoDaddy to register it.
+				</blockquote>
+				<span class="pmtitle">Set DNS</span>
+				<p>
+					To set DNS go to your home page of GoDaddy and select <span class="pcur">your_user</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/1.png">
+				</div>
+				<p>
+					Next select <span class="pcur">My Products</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/2.png">
+				</div>
+				<p>
+					Finally select <span class="pcur">DNS</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/3.png">
+				</div>
+				<p>
+					In DNS Management you need to create a few records. Create an <span class="pcur">A</span> record and point your apex domain (<span class="phl">example.com</span>) to the IP addresses for GitHub Pages and these are <span class="phl">185.199.108.153</span>, <span class="phl">185.199.109.153</span>, <span class="phl">185.199.110.153</span>, <span class="phl">185.199.111.153</span>. (This record need to be created regardless of the type of domain you want, this records make when someone search your apex domain (<span class="phl">example.com</span>) on internet they will be redirected to GitHub server).
+				</p>
+				<p>
+					To do that select <span class="pcur">ADD</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/4.png">
+				</div>
+				<p>
+					In <span class="pcur">Type</span> choose <span class="pcur">A</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/5.png">
+				</div>
+				<p>
+					In <span class="pcur">Host</span> write <span class="phl">@</span> and <span class="pcur">Points to</span> write the first IP <span class="phl">185.199.108.153</span> and <span class="pcur">Save</span>, you need to do the same only changing the IP until finish the IPs.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/6.png">
+				</div>
+				<p>
+					The domain in <span class="pcur">Github Pages</span> for repositories is formed by a subdomain nested to apex domain i.e if you have <span class="phl">www.example.com</span>, <span class="phl">www</span> is the subdomain and <span class="phl">example.com</span> is the domain or apex domain can be called for this two names. But <span class="phl">www</span> is "special" becouse we will make a record with <span class="phl">www</span> but not to create <span class="phl">www.example.com</span> if not to redirect it to <span class="phl">example.com</span>. This will not hapen with other subdomain like <span class="phl">wiki</span> becouse in this case yes what are we going to create <span class="phl">wiki.lainfy.com</span>.
+				</p>
+				<p>
+					In more datails, the <span class="phl">www</span> subdomain has always been used to host a web page, i.e <span class="phl">www.example.com</span>, the problem is that it is not necessary to have the page configured with a subdomain, so it would be logical to configure the main page as an <span class="phl">example.com</span> i.e without the <span class="phl">www</span> subdomain, (these domains without <span class="phl">www</span> i.e <span class="phl">example.com</span> are called apex) the problem is that most people assimilate that <span class="phl">www.example.com</span> and <span class="phl">example.com</span> are the same and viceversa because of what was mentioned above , so GitHub will to redirect our <span class="phl">www.example.com</span> to <span class="phl">example.com</span> (and viceversa?) by default to avoid confusion, because having two different pages one at <span class="phl">www.example.com</span> and another in <span class="phl">example.com</span> would be absurd for what was mentioned above. The domain that I will configure is apex i.e <span class="phl">example.com</span> but also I ll show how to configure with a subdomain too, for example <span class="phl">wiki.lainfy.com</span>.
+				</p>
+				<p>
+					If you want to have a apex domain is very recomended to do a <span class="pcur">CNAME</span> with <span class="phl">www</span> subdomain to be redirect to apex domain, i.e <span class="phl">www.example.com</span> will be redirect to <span class="phl">example.com</span>. (You only create the <span class="pcur">CNAME</span>, GitHub will be redirect it automatilaclly you dont need to do nothing). To create <span class="pcur">CNAME</span> you will do the same that before but instead of choose <span class="pcur">A</span> you will choose <span class="pcur">CNAME</span>, write in <span class="pcur">Host</span> <span class="phl">www</span> and in <span class="pcur">Points to</span> <span class="phl">your_username.github.io</span>(Write your username followed by <span class="phl">github.io</span>) then <span class="pcur">Save</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/8.png">
+				</div>
+				<p>
+					If you want to have a subdomain just add a <span class="pcur">CNAME</span> like before but in <span class="pcur">Host</span> write the domain which you want for page, for example I choosen <span class="phl">wiki</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/9.png">
+				</div>
+				<p>
+					The result should be similar to this if you choose apex domain, if you choose with a subdomain where is <span class="phl">www</span> will be the subdomain that you choose in my case it would have been <span class="phl">wiki</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/7.png">
+				</div>
+				<!--  -->
+				<span class="pmtitle">Set domain on GitHub Pages</span>
+				<p>
+					Go to the <span class="pcur">Settings</span> of the GitHub repository to which you want to configure a <span class="pcur">Custom domain</span>.
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/10.png">
+				</div>
+				<p>
+					Github to be able to locate the repository you need to set <span class="pcur">Custom domain</span> that is formed by subdomain what you choose in <span class="pcur">CNAME</span> nested with your apex domain (in my case my apex domain is <span class="phl">lainfy.com</span>), so my <span class="pcur">Custom domain</span> will be like this <span class="phl">subdomain_what_i_choose_in_CNAME.lainfy.com</span>. Of course with the repository where you want to have apex domain is just will be the apex domain (<span class="phl">lainfy.com</span>) becouse you dont have subdomain. It's trivial but you cant use the same subdomain or apex domain for 2 or more repositories at the same time becouse it's impossible to be redirect to two or more different places at the same time.
+				</p>
+				<p>
+					It is important to know that you can have all the subdomains what you want (i.e "infinite" records), remember that we are configuring the domain of a one GitHub repository, just create a new repository, return here and create a new <span class="pcur">CNAME</span>, write the subdomain what you want, and then in that repository of GitHub on <span class="pcur">Custom domain</span> just write the subdomain that you chose nested with apex domain, for example in the new <span class="pcur">CNAME</span> write <span class="phl">store</span> and on <span class="pcur">Custom domain</span> I'll write <span class="phl">store.lainfy.com</span>. And now you have other repository with a <span class="pcur">Custom domain</span> and so on continuously, you can also use the apex domain if you have it free. With a only domain register you can have all your projects with a <span class="pcur">Custom domain</span> the only thing is that share the apex domain.
+				</p>
+				<p>
+					So scroll down and found the section <span class="pcur">GitHub Pages</span> in <span class="pcur">Source</span> choose <span class="pcur">master branch</span> (if you want other just selecte it) and on <span class="pcur">Custom domain</span> write the domain what you choose in <span class="pcur">CNAME</span>, in my case <span class="phl">lainfy.com</span> if I want an apex domain or <span class="phl">wiki.lainfy.com</span> if I want to have the subdomain then <span class="pcur">Save</span>. Now you need to wait some minutes for the certificate to be verified to check <span class="pcur">Enforce HTTPS</span>. (Other than thatIt is likely that you will get an error related to the DNS, in principle you just have to wait for the DNS Propagation to take effect which in some cases might take up to 24hrs).
+				</p>
+				<div class="pimg">
+					<img src="how_to_set_custom_domain_github_goddady/11.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div id="footer">Copyright: CC BY (Creative Commons By Atribution)</div>
+	</footer>
+</body>
+</html>
